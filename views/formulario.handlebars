@@ -1,26 +1,42 @@
-<main><div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <h2 class="mb-4">Cadastro de Produto</h2>
-      <form action="/cadastrar" method="POST">
-        <div class="mb-3">
-          <label for="nome" class="form-label">Nome do produto</label>
-          <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite o nome do produto">
-        </div>
+<main>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <h2 class="mb-4">Cadastro de Produto</h2>
 
-        <div class="mb-3">
-          <label for="valor" class="form-label">Valor do produto</label>
-          <input type="number" id="valor" name="valor" class="form-control" placeholder="Digite o valor">
-        </div>
+        
+        {{#if sucesso}}
+          <div class="alert alert-success">
+            Produto <strong>{{nome}}</strong> cadastrado com sucesso!
+          </div>
+        {{/if}}
 
-        <div class="mb-3">
-          <label for="descricao" class="form-label">Descrição</label>
-          <input type="text" id="descricao" name="descricao" class="form-control" placeholder="Digite a descrição">
-        </div>
+        
+        {{#if erro}}
+          <div class="alert alert-danger">
+            Ocorreu um erro ao cadastrar o produto. Tente novamente.
+          </div>
+        {{/if}}
 
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-      </form>
+        <form action="/cadastrar" method="POST">
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome do produto</label>
+            <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite o nome do produto">
+          </div>
+
+          <div class="mb-3">
+            <label for="valor" class="form-label">Valor do produto</label>
+            <input type="number" id="valor" name="valor" class="form-control" placeholder="Digite o valor">
+          </div>
+
+          <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input type="text" id="descricao" name="descricao" class="form-control" placeholder="Digite a descrição">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </main>
